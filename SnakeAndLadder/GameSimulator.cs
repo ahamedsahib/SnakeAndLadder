@@ -36,6 +36,7 @@ namespace SnakeAndLadder
                 else if (option == 3)
                 {
                     Console.WriteLine("**Player hit by a snake**");
+                    position = position - rolled_dice;
                     if (position < 0)//if player goes below 0 assign initial position
                     {
                         position = 0;
