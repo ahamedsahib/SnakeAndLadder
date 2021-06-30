@@ -14,7 +14,7 @@ namespace SnakeAndLadder
         {
             
             Random random = new Random();
-            while (position <= 100)
+            while (position < 100)
             {
                 // generating random for rolling dice
                 int rolled_dice = random.Next(1, 7);
@@ -26,14 +26,16 @@ namespace SnakeAndLadder
                 {
                     Console.WriteLine("**Player got Ladder and Climbing up**");
                     position += rolled_dice;//picking up ladder and moving forward
-                    
+                    if (position > 100)//if player goes above 100 going back to previous position
+                    {
+                        position -= rolled_dice;
+
+                    }
+
                 }
                 else if (option == 3)
                 {
                     Console.WriteLine("**Player hit by a snake**");
-                    //hit by a snake and going down using conditonal opertor to check below 0 then move to start position as 0
-                    position = (position- rolled_dice) <0 ? 0:position-rolled_dice;
-
                     if (position < 0)//if player goes below 0 assign initial position
                     {
                         position = 0;
@@ -44,9 +46,9 @@ namespace SnakeAndLadder
                     Console.WriteLine("**Player had no chance to play**");
                 }
 
-               
             }
-                Console.WriteLine("Player Wins!!!!");
+
+            Console.WriteLine("Player Wins!!!!");
             
         }
 
