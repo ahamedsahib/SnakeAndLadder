@@ -7,6 +7,7 @@ namespace SnakeAndLadder
     class GameSimulator
     {
         public int position = 0;
+        public int dice_Count = 0;
         public const int noPlay = 1;//noplay has no chance to play 
         public const int ladder = 2;//ladder option going up when got a ladder
         public const int snake = 3;//snake option when hit by a snake goes down
@@ -16,6 +17,7 @@ namespace SnakeAndLadder
             Random random = new Random();
             while (position < 100)
             {
+                //to check no of time dice rolled 
                 // generating random for rolling dice
                 int rolled_dice = random.Next(1, 7);
                 //creating random no to pick 3 options 1)No play 2)Ladder 3)Snake
@@ -47,7 +49,11 @@ namespace SnakeAndLadder
                     Console.WriteLine("**Player had no chance to play**");
                 }
 
+                dice_Count++;
+                Console.WriteLine($"Player Current Position is {position} ");//used to track current position of player
+
             }
+            Console.WriteLine($"The number of times Dice rolled :{dice_Count}");//dice roll count on game
 
             Console.WriteLine("Player Wins!!!!");
             
