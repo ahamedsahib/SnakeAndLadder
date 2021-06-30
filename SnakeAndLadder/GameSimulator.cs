@@ -6,7 +6,7 @@ namespace SnakeAndLadder
 {
     class GameSimulator
     {
-        public int position = 0;
+       
         public static int dice_Count = 0;
         public const int noPlay = 1;//noplay has no chance to play 
         public const int ladder = 2;//ladder option going up when got a ladder
@@ -18,12 +18,15 @@ namespace SnakeAndLadder
 
         public static void Game()
         {
-            Player1Turn();
+            Player1Turn();//calling Player1 to start the game 
+            Console.WriteLine($"No Of times Dice Rolled {dice_Count}");
         }
         public static void Player1Turn()
         {
             
                 Random random = new Random();
+            //checking player position less than 100
+            //if other player reaches 100 it terminates
                 while (player1_Position < 100 && player2_Position != 100)
                 {
                     //to check no of time dice rolled 
@@ -55,7 +58,7 @@ namespace SnakeAndLadder
                         }
                         else
                         {
-                        continue;
+                            continue;
                         }
 
 
@@ -143,5 +146,6 @@ namespace SnakeAndLadder
                 }
 
         }
+        
     }
 }
